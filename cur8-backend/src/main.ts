@@ -3,6 +3,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { IncomingMessage, ServerResponse } from 'http';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -27,4 +28,15 @@ async function bootstrap() {
   await app.listen(port);
   Logger.log(`Application successfully started on port: ${port}`, 'Bootstrap');
 }
-export default bootstrap();
+let cachedServer: (req: IncomingMessage, res: ServerResponse) => void;
+
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  if (!cachedServer) {
+    cachedServer = await bootstrap();
+  }
+  return cachedServer(req, res);
+}
+
+if (!process.env.VERCEL) {
+  bootstrap();
+}

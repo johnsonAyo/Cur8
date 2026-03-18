@@ -1,0 +1,14 @@
+{
+  "name": "cur8-project-recommendation-engine",
+  "version": "1.0.0",
+  "description": "CUR8 Full Stack Engineer Technical Task",
+  "scripts": {
+    "install:all": "npm install && cd cur8-backend && npm install && cd ../cur8-frontend && npm install",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd cur8-backend && npm run start:dev",
+    "start:frontend": "cd cur8-frontend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

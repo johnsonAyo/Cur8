@@ -1,0 +1,30 @@
+[
+  {
+    "id": "p1",
+    "name": "The Helios Initiative",
+    "technology": "Biochar",
+    "supplier_id": "s1",
+    "status": "operational"
+  },
+  {
+    "id": "p2",
+    "name": "Project Ironwood",
+    "technology": "Biomass Burial",
+    "supplier_id": "s2",
+    "status": "in_design"
+  },
+  {
+    "id": "p3",
+    "name": "Stratos Deep-Well",
+    "technology": "Bio-oil Injection",
+    "supplier_id": "s3",
+    "status": "discontinued"
+  },
+  {
+    "id": "p4",
+    "name": "Emerald Kiln",
+    "technology": "Biochar",
+    "supplier_id": "s1",
+    "status": "operational"
+  }
+]

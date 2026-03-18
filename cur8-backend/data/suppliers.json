@@ -1,0 +1,17 @@
+[
+  {
+    "id": "s1",
+    "name": "CarbonFix Global",
+    "verification_status": "verified"
+  },
+  {
+    "id": "s2",
+    "name": "TerraFirma Storage",
+    "verification_status": "pending"
+  },
+  {
+    "id": "s3",
+    "name": "PetroSink Inc.",
+    "verification_status": "verified"
+  }
+]

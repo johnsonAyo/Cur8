@@ -18,8 +18,13 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  const port = 3000;
+  if (process.env.VERCEL) {
+    await app.init();
+    return app.getHttpAdapter().getInstance();
+  }
+
+  const port = process.env.PORT ?? 3000;
   await app.listen(port);
   Logger.log(`Application successfully started on port: ${port}`, 'Bootstrap');
 }
-bootstrap();
+export default bootstrap();

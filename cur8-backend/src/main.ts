@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -31,10 +32,20 @@ async function bootstrap() {
 let cachedServer: (req: IncomingMessage, res: ServerResponse) => void;
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
-  if (!cachedServer) {
-    cachedServer = await bootstrap();
+  try {
+    if (!cachedServer) {
+      cachedServer = await bootstrap();
+    }
+    return cachedServer(req, res);
+  } catch (err: any) {
+    console.error('NestJS initialization failed:', err);
+    res.statusCode = 500;
+    res.end(JSON.stringify({
+      error: 'NestJS Initialization Error',
+      message: err.message || String(err),
+      stack: err.stack,
+    }));
   }
-  return cachedServer(req, res);
 }
 
 if (!process.env.VERCEL) {

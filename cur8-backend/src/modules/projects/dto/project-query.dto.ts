@@ -1,6 +1,6 @@
 import { IsOptional, IsString, IsEnum, IsInt, Min } from 'class-validator';
 import { Type } from 'class-transformer';
-import { ProjectStatus } from '@/common/interfaces/project.interface';
+import { ProjectStatus } from '../../../common/interfaces/project.interface';
 
 export enum SortOrder {
   ASC = 'asc',

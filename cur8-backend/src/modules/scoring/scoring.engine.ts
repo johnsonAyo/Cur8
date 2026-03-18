@@ -2,7 +2,7 @@ import { ScoreBreakdown } from './scoring.types';
 import {
   ProjectStatus,
   VerificationStatus,
-} from '@/common/interfaces/project.interface';
+} from '../../common/interfaces/project.interface';
 import { TRUST_SCORES, FINANCIAL_SCORES, SCORING_CONSTANTS } from './constants';
 
 export class ScoringEngine {

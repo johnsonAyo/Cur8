@@ -6,7 +6,7 @@ import {
     type ProjectDetailed,
     type ProjectSummary,
     type PaginatedResponse,
-} from '@/common/interfaces/project.interface';
+} from '../../common/interfaces/project.interface';
 
 @ApiTags('projects')
 @Controller('projects')

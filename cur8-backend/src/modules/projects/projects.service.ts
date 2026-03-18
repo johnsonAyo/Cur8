@@ -4,7 +4,7 @@ import {
   ProjectDetailed,
   ProjectSummary,
   PaginatedResponse,
-} from '@/common/interfaces/project.interface';
+} from '../../common/interfaces/project.interface';
 import { ProjectsRepository } from './projects.repository';
 import { ScoringEngine } from '../scoring/scoring.engine';
 import { ProjectQueryDto, SortOrder } from './dto/project-query.dto';

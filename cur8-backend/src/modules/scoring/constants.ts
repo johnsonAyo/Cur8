@@ -1,7 +1,7 @@
 import {
   ProjectStatus,
   VerificationStatus,
-} from '@/common/interfaces/project.interface';
+} from '../../common/interfaces/project.interface';
 
 export const TRUST_SCORES: Record<VerificationStatus, number> = {
   [VerificationStatus.VERIFIED]: 10.0,

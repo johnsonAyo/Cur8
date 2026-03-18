@@ -5,7 +5,7 @@ import {
   Project,
   ScientificMetrics,
   Supplier,
-} from '@/common/interfaces/project.interface';
+} from '../../common/interfaces/project.interface';
 
 @Injectable()
 export class ProjectsRepository {
@@ -21,7 +21,10 @@ export class ProjectsRepository {
   }
 
   private loadData() {
-    const dataDir = path.join(process.cwd(), 'data');
+    // In the compiled JS file (dist/modules/projects/projects.repository.js),
+    // __dirname points to 'dist/modules/projects', so we need to go up 3 levels
+    // to reach the root where 'data' is located.
+    const dataDir = path.join(__dirname, '..', '..', '..', 'data');
     try {
       this.projects = JSON.parse(
         fs.readFileSync(path.join(dataDir, 'projects.json'), 'utf8'),
